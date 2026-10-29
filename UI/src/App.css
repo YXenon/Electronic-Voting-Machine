@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+    --surface: oklch(12.88% 0.0406 264.7);
+    --card: oklch(20.77% 0.0398 265.75);
+    --line: oklch(27.95% 0.0368 260.03);
+    --line-strong: oklch(37.17% 0.0392 257.29);
+    --ink: oklch(96.83% 0.0069 247.9);
+    --soft: oklch(86.9% 0.0198 252.89);
+    --muted: oklch(71.07% 0.0351 256.79);
+    --dim: oklch(55.44% 0.0407 257.42);
+    --accent: oklch(68.47% 0.1479 237.32);
+    --on-accent: oklch(12.88% 0.0406 264.7);
+    --success: oklch(69.59% 0.1491 162.48);
+    --on-success: oklch(26.21% 0.0487 172.55);
+    --danger: oklch(64.5% 0.2154 16.44);
+    --on-danger: oklch(100% 0 0);
+    --warn: oklch(83.69% 0.1644 84.43);
+    --live: oklch(77.29% 0.1535 163.22);
+    --focus: oklch(75.35% 0.139 232.66);
+    --btn-1: oklch(64.5% 0.2154 16.44);
+    --btn-2: oklch(76.86% 0.1647 70.08);
+    --btn-3: oklch(69.59% 0.1491 162.48);
+    --btn-4: oklch(68.47% 0.1479 237.32);
+    --btn-5: oklch(60.56% 0.2189 292.72);
+}
+
+@theme {
+    --color-surface: var(--surface);
+    --color-card: var(--card);
+    --color-line: var(--line);
+    --color-line-strong: var(--line-strong);
+    --color-ink: var(--ink);
+    --color-soft: var(--soft);
+    --color-muted: var(--muted);
+    --color-dim: var(--dim);
+    --color-accent: var(--accent);
+    --color-on-accent: var(--on-accent);
+    --color-success: var(--success);
+    --color-on-success: var(--on-success);
+    --color-danger: var(--danger);
+    --color-on-danger: var(--on-danger);
+    --color-warn: var(--warn);
+    --color-live: var(--live);
+    --color-focus: var(--focus);
+    --color-btn-1: var(--btn-1);
+    --color-btn-2: var(--btn-2);
+    --color-btn-3: var(--btn-3);
+    --color-btn-4: var(--btn-4);
+    --color-btn-5: var(--btn-5);
+    --font-sans:
+        system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        sans-serif;
+    --text-micro: 0.7rem;
+    --text-caption: 0.8rem;
+    --text-label: 0.85rem;
+    --text-body: 0.9rem;
+    --text-count: 2.75rem;
+    --text-count--line-height: 1.1;
+    --radius-control: 0.625rem;
+    --breakpoint-wide: 60rem;
+    --animate-blink: blink 1s ease-in-out infinite;
+    --animate-breathe: blink 1.6s ease-in-out infinite;
+    --animate-bump: bump 0.25s ease-out;
+    --animate-flash: flash 0.6s ease-out forwards;
+
+    @keyframes blink {
+        50% {
+            opacity: 0.35;
+        }
+    }
+    @keyframes bump {
+        from {
+            transform: scale(1.25);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+    @keyframes flash {
+        from {
+            background: rgb(255 255 255 / 0.2);
+        }
+        to {
+            background: rgb(255 255 255 / 0);
+        }
+    }
+}
+
+@utility p-safe {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    padding-left: max(1rem, env(safe-area-inset-left));
+}
+
+@layer base {
+    :root {
+        color-scheme: dark;
+    }
+    html,
+    body {
+        background-color: var(--color-surface);
+    }
+    :focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
