@@ -1,8 +1,8 @@
-"""
+/*
 This is the final and robust iteration. It can be flashed directly.
 For instructions and steps, please refer to README.md in parent directories.
 The file has been tested and all features work as intended, Claude was used to refactor it.
-"""
+*/
 
 #include <Arduino.h>
 #include <WiFi.h>
@@ -53,7 +53,7 @@ void To(uint8_t num, const JsonDocument &doc) {
 void Broadcast(const JsonDocument &doc) {
   String out;
   serializeJson(doc, out);
-  server.BroadcastTXT(out);
+  server.broadcastTXT(out);
 }
 
 void Error(uint8_t num, const char *msg) {
@@ -333,16 +333,11 @@ void UpdateLED() {
 
 void ConnectWiFi() {
   // CLIENT MODE
-  // WiFi.mode(WIFI_STA);
-  // WiFi.setHostname("ESP32VM");
-  // WiFi.setAutoReconnect(true);
-  // WiFi.persistent(false);
-  // WiFi.begin(WIFI_SSID, WIFI_PASS);
-
-  // ACCESS POINT MODE
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP(WIFI_SSID, WIFI_PASS);
-
+  WiFi.mode(WIFI_STA);
+  WiFi.setHostname("ESP32VM");
+  WiFi.setAutoReconnect(true);
+  WiFi.persistent(false);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
   const uint32_t start = millis();
   while (WiFi.status() != WL_CONNECTED) {
     if (millis() - start > 30000) {
@@ -351,6 +346,11 @@ void ConnectWiFi() {
     }
     delay(250);
   }
+
+  // // ACCESS POINT MODE
+  // WiFi.mode(WIFI_AP);
+  // WiFi.softAP(WIFI_SSID, WIFI_PASS);
+
 }
 
 void setup() {

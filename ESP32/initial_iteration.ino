@@ -1,7 +1,7 @@
-"""
+/*
 This was an initial iteration created by me for AI to get a context and make a refined version.
 Its test only and should not be used as a final product. The finalized version is much more robust.
-"""
+*/
 
 #include <Arduino.h>
 #include <WiFi.h>
