@@ -1,14 +1,6 @@
-/*
- * Reusable UI primitives. All styling is Tailwind utilities that point at the
- * tokens defined in index.css (bg-card, text-muted, rounded-control, …).
- *
- * Variant maps never put two classes for the same CSS property in one string,
- * so there is no reliance on class order.
- */
-
 export const cn = (...parts) => parts.filter(Boolean).join(" ");
 
-/* ---------------------------------------------------------------- layout */
+
 
 export function Row({ as: El = "div", nowrap = false, className, ...props }) {
     return (
@@ -23,10 +15,10 @@ export function Row({ as: El = "div", nowrap = false, className, ...props }) {
     );
 }
 
-/** Two-column grid used for button pairs and label/input pairs. */
+
 export const twoCol = "grid grid-cols-2 items-end gap-2";
 
-/* ----------------------------------------------------------------- cards */
+
 
 export function Card({
     as: El = "section",
@@ -64,7 +56,7 @@ export function Hint({ className, ...props }) {
     return <p className={cn("mt-2 text-xs text-dim", className)} {...props} />;
 }
 
-/* --------------------------------------------------------------- buttons */
+
 
 const btnBase =
     "cursor-pointer touch-manipulation rounded-control font-medium " +
@@ -112,7 +104,7 @@ export function Field({ label, className, children }) {
     );
 }
 
-// text-base (16px) stops iOS from zooming on focus
+
 export function Input({ className, ...props }) {
     return (
         <input
@@ -126,7 +118,7 @@ export function Input({ className, ...props }) {
     );
 }
 
-/* ------------------------------------------------------ badges & banners */
+
 
 const dotTone = {
     idle: "bg-dim",
