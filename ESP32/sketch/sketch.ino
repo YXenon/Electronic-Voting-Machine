@@ -332,11 +332,16 @@ void UpdateLED() {
 
 
 void ConnectWiFi() {
-  WiFi.mode(WIFI_STA);
-  WiFi.setHostname("ESP32VM");
-  WiFi.setAutoReconnect(true);
-  WiFi.persistent(false);
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  // CLIENT MODE
+  // WiFi.mode(WIFI_STA);
+  // WiFi.setHostname("ESP32VM");
+  // WiFi.setAutoReconnect(true);
+  // WiFi.persistent(false);
+  // WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  // ACCESS POINT MODE
+  WiFi.mode(WIFI_AP);
+  WiFi.softAP(WIFI_SSID, WIFI_PASS);
 
   const uint32_t start = millis();
   while (WiFi.status() != WL_CONNECTED) {
